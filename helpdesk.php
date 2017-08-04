@@ -1,8 +1,14 @@
 <?php
-require_once("SwitchvoxRequest.php");
+#require_once("SwitchvoxRequest.php");
+
+require __DIR__.'/vendor/autoload.php';
+
 require_once("config.php");
 
-$request = new SwitchvoxRequest("$CFG->host", "$CFG->user", "$CFG->password");
+$request = new Switchvox\SwitchvoxClient();
+$request->uri=$CFG->host;
+$request->user=$CFG->user;
+$request->password=$CFG->password;
 
 $MonthAgo = `date +"%F 00:00:00" --date="a year ago"`;
 $Today = `date +"%F 00:00:00"`;
@@ -11,19 +17,18 @@ $Today = trim($Today);
 
 $requestParams = array( 'start_date' => $MonthAgo,'end_date' => $Today,
 			'ignore_weekends' =>true,
-		        'queue_account_ids'=>array('queue_account_id'=>1235),
+			'queue_account_ids'=>array('queue_account_id'=>1235),
 			'report_fields'=>array('report_field'=>array('abandoned_calls',
-								     'completed_calls',
-								     'redirected_calls')),
-			'format'=>"xml",
+									'completed_calls',
+									'redirected_calls')),
 //			'sort_field'=>'start_time',
 			'breakdown' => "by_day",
 			'items_per_page' => 9999,
 			'sort_field' => 'date',
-			'sort_order'=>'ASC' //or DESC
-	
+			'sort_order'=>'ASC'
+
 );
-$response = $request->send("switchvox.callQueueReports.search", $requestParams);
+$response = $request->send("switchvox.", $requestParams);
 
 //echo $response->getRawXMLResponse();
 

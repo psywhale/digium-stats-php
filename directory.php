@@ -1,34 +1,41 @@
 <?php
-//require_once("SwitchvoxRequest.php");
-//
-require_once("mm_switchvox_integration.php");
+require __DIR__.'/vendor/autoload.php';
 require_once("config.php");
 
 //$request = new SwitchvoxRequest("$CFG->host", "$CFG->user", "$CFG->password");
-$request = mm_switchvox::getInstance("$CFG->host", "$CFG->user", "$CFG->password");
+//$request = mm_switchvox::getInstance("$CFG->host", "$CFG->user", "$CFG->password");
+$request = new Switchvox\SwitchvoxClient();
+$request->uri=$CFG->host;
+$request->user=$CFG->user;
+$request->password=$CFG->password;
+
+//$request->data_type='xml';
 
 $Ago = `date +"%F 00:00:01" --date="yesterday"`;
 $Today = `date +"%F 23:59:59" --date="yesterday"`;
 $Ago = trim($Ago);
 $Today = trim($Today);
 
-$requestParams = array( 
-			'sort_field'=>'number',
-            'sort_order'=>'ASC',
-            'items_per_page'=>300
-);
-$response = $request->request("switchvox.directories.getExtensionList", $requestParams);
-var_dump($response);
+$requestParams =[
+  'sort_field'=>'number',
+  'sort_order'=>'ASC',
+  'items_per_page'=>'9999'
+];
 
-foreach($response['directory']['extensions']["extension"] as $ext) {
-    if(array_key_exists("email_address",$ext)) {
-        if($ext["email_address"] == "PBX@wosc.edu") {
-            echo $ext["number"]."\n";
-        }
+//$response = $request->send('switchvox.status.phones.getList', $requestParams);
+$response = $request->send('switchvox.directories.getExtensionList', $requestParams);
+
+print_r($response->body);
+$result = $response->body->response->result;
+foreach ($result->directory->extensions->extension as $sip_phone) {
+    if($sip_phone->type == "sip") {
+        echo "$sip_phone->number,$sip_phone->display,$sip_phone->first_name,$sip_phone->last_name,$sip_phone->location\n";
     }
-
-
+//    echo "$sip_phone->caller_id $sip_phone->extension\n";
 }
+
+///$response->
+
 
 
 die;

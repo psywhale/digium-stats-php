@@ -1,0 +1,12 @@
+{
+    "name": "brian/switchvox",
+    "require": {
+        "shrimpwagon/digium-switchvox-api": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Gogs",
+            "email": "gogs@fake.local"
+        }
+    ]
+}

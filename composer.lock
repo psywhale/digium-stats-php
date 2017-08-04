@@ -1,0 +1,160 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "60aaa687cf50453089a5ec5a7dcd94ef",
+    "content-hash": "0a63cd90fb6c0148daa57e2c58657617",
+    "packages": [
+        {
+            "name": "dcarbone/xml-writer-plus",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dcarbone/xml-writer-plus.git",
+                "reference": "53f13c5cf3374da8ce469b03031b56a4dfa22e06"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dcarbone/xml-writer-plus/zipball/53f13c5cf3374da8ce469b03031b56a4dfa22e06",
+                "reference": "53f13c5cf3374da8ce469b03031b56a4dfa22e06",
+                "shasum": ""
+            },
+            "require": {
+                "lib-libxml": "*",
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DCarbone\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Carbone",
+                    "email": "daniel.p.carbone@gmail.com"
+                }
+            ],
+            "description": "Simple XML Writer library for PHP 5.3+",
+            "homepage": "https://github.com/dcarbone/xml-writer-plus",
+            "keywords": [
+                "XMLWriter",
+                "php",
+                "xml"
+            ],
+            "time": "2016-06-06 15:46:58"
+        },
+        {
+            "name": "nategood/httpful",
+            "version": "0.2.20",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nategood/httpful.git",
+                "reference": "c1cd4d46a4b281229032cf39d4dd852f9887c0f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nategood/httpful/zipball/c1cd4d46a4b281229032cf39d4dd852f9887c0f6",
+                "reference": "c1cd4d46a4b281229032cf39d4dd852f9887c0f6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Httpful": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nate Good",
+                    "email": "me@nategood.com",
+                    "homepage": "http://nategood.com"
+                }
+            ],
+            "description": "A Readable, Chainable, REST friendly, PHP HTTP Client",
+            "homepage": "http://github.com/nategood/httpful",
+            "keywords": [
+                "api",
+                "curl",
+                "http",
+                "requests",
+                "rest",
+                "restful"
+            ],
+            "time": "2015-10-26 16:11:30"
+        },
+        {
+            "name": "shrimpwagon/digium-switchvox-api",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shrimpwagon/digium-switchvox-api.git",
+                "reference": "c97d55c4a747476bc9e3ec20cbe68b7ead897ce3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shrimpwagon/digium-switchvox-api/zipball/c97d55c4a747476bc9e3ec20cbe68b7ead897ce3",
+                "reference": "c97d55c4a747476bc9e3ec20cbe68b7ead897ce3",
+                "shasum": ""
+            },
+            "require": {
+                "dcarbone/xml-writer-plus": "0.4.*",
+                "nategood/httpful": "^0.2.20"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Switchvox": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shawn Welch",
+                    "email": "shawnmatthewwelch@gmail.com"
+                }
+            ],
+            "description": "PHP wrapper for Switchvox API",
+            "homepage": "http://github.com/shrimpwagon/digium-switchvox-api",
+            "keywords": [
+                "api",
+                "digium",
+                "json",
+                "switchvox",
+                "xml"
+            ],
+            "time": "2016-09-02 21:45:34"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
